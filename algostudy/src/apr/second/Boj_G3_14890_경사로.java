@@ -47,10 +47,10 @@ public class Boj_G3_14890_경사로 {
 	static int buildRoad() {
 		int cnt = 0;
 		for (int i = 0; i < N; i++) {
-			if (makeRoad(map[i])) {
+			if (makeRoad(map[i])) {// i행 경사로 건설 가능 여부 체크
 				++cnt;
 			}
-			if (makeRoad(revmap[i])) {
+			if (makeRoad(revmap[i])) {// i열 경사로 건설 가능 여부 체크
 				++cnt;
 			}
 		}
@@ -61,10 +61,10 @@ public class Boj_G3_14890_경사로 {
 	static boolean makeRoad(int[] arr) {
 		int j = 0, len = 0, height = arr[0];
 		while (j < N) {
-			if (Math.abs(arr[j] - height) > 1) {
+			if (Math.abs(arr[j] - height) > 1) {// 차이가 1을 초과하면 false
 				return false;
 			}
-			if (height - 1 == arr[j]) {
+			if (height - 1 == arr[j]) {// 내리막길 경사로
 				int cnt = 0;
 				for (int k = j; k < N; k++) {
 					if (arr[k] != height - 1) {
@@ -80,14 +80,14 @@ public class Boj_G3_14890_경사로 {
 				j += L;
 				len = 0;
 				--height;
-			} else if (height + 1 == arr[j]) {
+			} else if (height + 1 == arr[j]) {// 오르막길 경사로
 				if (len < L) {
 					return false;
 				}
 				++j;
 				len = 1;
 				++height;
-			} else {
+			} else {// 길이가 같음
 				++j;
 				++len;
 			}
