@@ -10,7 +10,7 @@ import java.io.*;
  *
  * @author : KimSeonhong
  * @date : 2021. 4. 14.
- * @version :
+ * @version : 0.2
  * 
  * 분류: 구현, 시뮬레이션
  * 난이도: 실버2
@@ -60,12 +60,13 @@ public class Boj_S2_8911_거북이 {
 				y += dy[(dir + 2) % 4];
 				break;
 			case 'L':
-				dir = (dir + 3) % 4;
-				break;
-			case 'R':
 				dir = (dir + 1) % 4;
 				break;
+			case 'R':
+				dir = (dir + 3) % 4;
+				break;
 			}
+			System.out.println(x+" "+y);
 			if (mv) {
 				minRow = Math.min(minRow, x);
 				minCol = Math.min(minCol, y);
